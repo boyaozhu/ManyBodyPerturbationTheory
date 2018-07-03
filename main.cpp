@@ -51,7 +51,7 @@ int main(int argc, char* argv[])
     mat Hamiltonian(6,6);
     vec eigval;
     double val;
-    ofile<<setw(15)<<"Grid Space"<<setw(15)<<"MBPT2"<<setw(15)<<"Exact"<<endl;
+    //ofile<<setw(15)<<"Grid Space"<<setw(15)<<"MBPT2"<<setw(15)<<"Exact"<<endl;
     for (int i=0; i<21; i++)
     {
         g=grid[i];
