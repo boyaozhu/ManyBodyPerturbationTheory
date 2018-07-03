@@ -22,9 +22,9 @@ double e2nd(double (*assym) (int, int, int, int, int [8][2], double&), double (*
 ofstream ofile;
 int main(int argc, char* argv[])
 {
-    char *outfilename
+    char *outfilename;
         // Read in output file, abort if there are too few command-line arguments
-    if (argc<=0)
+    if (argc<=1)
     {
         cout<<"Bad Usage: "<<argv[0]<<" Read also output file, number of integration points and the final x values on same line, four variables in total"<<endl;
         exit(1);
@@ -67,13 +67,13 @@ int main(int argc, char* argv[])
         eig_sym(eigval, Hamiltonian);
         
         val=min(eigval)-(2-g);
-        cout<<val<<endl;
+        //cout<<val<<endl;
         
-        ofile<<setw(15)<<setprecision(8)<<grid[i]<<setw(15)<<setprecision(8)<<val<<endl;
-        ofile.close()
+        ofile<<setw(15)<<setprecision(4)<<grid[i]<<setw(15)<<setprecision(4)<<val<<endl;
+        
     }
    
-    
+    ofile.close();
     
     return 0;
 }
