@@ -8,6 +8,10 @@
 
 #include <iostream>
 #include <cmath>
+#include <fstream>
+#include <iomanip>
+#include <cmath>
+#include <cmath>
 #include "armadillo"
 
 using namespace std;
@@ -17,9 +21,23 @@ double assym(int, int, int, int, int [8][2], double&);
 double eps(int, int, int, int, int [8][2]);
 double e2nd(double (*assym) (int, int, int, int, int [8][2], double&), double (*eps) (int, int, int, int, int [8][2]), int [4], int [4], int [8][2], double&);
 
-
-int main()
+ofstream ofile;
+int main(int argc, char* argv[])
 {
+    char *outfilename
+        // Read in output file, abort if there are too few command-line arguments
+    if (argc<=0)
+    {
+        cout<<"Bad Usage: "<<argv[0]<<" Read also output file, number of integration points and the final x values on same line, four variables in total"<<endl;
+        exit(1);
+    }
+    else 
+    {
+        outfilename=argv[1];
+    }
+    
+    ofile.open(outfilename);
+    
     int below_fermi[4] = {0,1,2,3};
     int above_fermi[4] = {4,5,6,7};
     int mystates[8][2] = {{1,1},{1,-1},{2,1},{2,-1},{3,1},{3,-1},{4,1},{4,-1}};
@@ -53,9 +71,8 @@ int main()
         val=min(eigval)-(2-g);
         cout<<val<<endl;
         
-        
-        
-        
+        ofile<<setw(15)<<setprecision(8)<<grid[i]<<setw(15)<<setprecision(8)<<val<<endl;
+        ofile.close()
     }
    
     
