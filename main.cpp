@@ -10,8 +10,6 @@
 #include <cmath>
 #include <fstream>
 #include <iomanip>
-#include <cmath>
-#include <cmath>
 #include "armadillo"
 
 using namespace std;
